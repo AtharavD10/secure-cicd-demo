@@ -1,5 +1,5 @@
 from flask import Flask
-from datetime import datetime
+from datetime import datetime, UTC  
 import os
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def home():
 def health():
     return {
         "status": "healthy",
-        "time": datetime.utcnow().isoformat() + "Z"
+        "time": datetime.now(UTC).isoformat()
     }
 
 @app.route("/version")
