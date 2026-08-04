@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI-2088FF?logo=github-actions)
+![Trivy](https://img.shields.io/badge/Trivy-Security_Scan-success)
 🚀 Secure CI/CD Pipeline with GitHub Actions & Trivy
 📌 Overview
 
@@ -22,3 +26,17 @@ Repository	GitHub
 CI/CD	GitHub Actions
 Testing	pytest
 Security	Trivy
+
+## Architecture
+```mermaid
+flowchart LR
+    A[Developer] -->|Git Push| B[GitHub Repository]
+    B --> C[GitHub Actions]
+
+    C --> D[Checkout Code]
+    D --> E[Install Dependencies]
+    E --> F[Run Tests]
+    F --> G[Build Docker Image]
+    G --> H[Trivy Security Scan]
+    H --> I[Pipeline Passed]
+```
