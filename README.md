@@ -2,6 +2,8 @@
 ![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI-2088FF?logo=github-actions)
 ![Trivy](https://img.shields.io/badge/Trivy-Security_Scan-success)
+
+
 🚀 Secure CI/CD Pipeline with GitHub Actions & Trivy
 📌 Overview
 
