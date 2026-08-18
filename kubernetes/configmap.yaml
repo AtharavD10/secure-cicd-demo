@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: secure-cicd-demo-config
+  namespace: secure-cicd-demo
+
+data:
+  APP_NAME: "Secure CI/CD Demo"
+  APP_ENV: "development"

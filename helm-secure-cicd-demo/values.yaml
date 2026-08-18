@@ -1,0 +1,30 @@
+replicaCount: 3
+
+image:
+  repository: secure-cicd-demo
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 5000
+  targetPort: 5000
+  nodePort: 30501
+
+config:
+  appName: "Secure CI/CD Demo"
+  appEnv: "development"
+
+secret:
+  apiKey: "CHANGE ME"
+
+probes:
+  readiness:
+    path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+
+  liveness:
+    path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 20

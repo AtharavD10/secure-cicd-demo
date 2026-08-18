@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: secure-cicd-demo
+  namespace: secure-cicd-demo
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: secure-cicd-demo
+
+  template:
+    metadata:
+      labels:
+        app: secure-cicd-demo
+
+    spec:
+      containers:
+        - name: secure-cicd-demo
+          image: secure-cicd-demo:latest
+          imagePullPolicy: IfNotPresent
+
+          envFrom:
+            - configMapRef:
+                name: secure-cicd-demo-config
+                
+            - secretRef:
+                name: secure-cicd-demo-secret
+
+          ports:
+            - containerPort: 5000
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 20
