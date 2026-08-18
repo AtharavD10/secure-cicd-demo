@@ -1,0 +1,11 @@
+apiVersion: v2
+
+name: secure-cicd-demo
+
+description: Kubernetes Helm chart for the Secure CI/CD Demo application
+
+type: application
+
+version: 0.1.0
+
+appVersion: "1.0.0"
